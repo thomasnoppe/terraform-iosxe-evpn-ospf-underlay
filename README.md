@@ -74,13 +74,13 @@ module "iosxe_evpn_ospf_underlay" {
 | Name | Version |
 |------|---------|
 | <a name="requirement_terraform"></a> [terraform](#requirement\_terraform) | >= 1.1.0 |
-| <a name="requirement_iosxe"></a> [iosxe](#requirement\_iosxe) | >=0.1.7 |
+| <a name="requirement_iosxe"></a> [iosxe](#requirement\_iosxe) | >= 0.3.0 |
 
 ## Providers
 
 | Name | Version |
 |------|---------|
-| <a name="provider_iosxe"></a> [iosxe](#provider\_iosxe) | >=0.1.7 |
+| <a name="provider_iosxe"></a> [iosxe](#provider\_iosxe) | >= 0.3.0 |
 
 ## Inputs
 
@@ -114,25 +114,25 @@ module "iosxe_evpn_ospf_underlay" {
 
 | Name | Type |
 |------|------|
-| [iosxe_interface_ethernet.leaf_fabric_interface](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_ethernet) | resource |
-| [iosxe_interface_ethernet.spine_fabric_interface](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_ethernet) | resource |
-| [iosxe_interface_loopback.loopback](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_loopback) | resource |
-| [iosxe_interface_loopback.pim_loopback](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_loopback) | resource |
-| [iosxe_interface_loopback.vtep_loopback](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_loopback) | resource |
-| [iosxe_interface_ospf.leaf_interface_ospf](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_ospf) | resource |
-| [iosxe_interface_ospf.spine_interface_ospf](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_ospf) | resource |
-| [iosxe_interface_ospf_process.leaf_interface_ospf_process](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_ospf_process) | resource |
-| [iosxe_interface_ospf_process.loopback_interface_ospf_process](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_ospf_process) | resource |
-| [iosxe_interface_ospf_process.pim_loopback_interface_ospf_process](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_ospf_process) | resource |
-| [iosxe_interface_ospf_process.spine_interface_ospf_process](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_ospf_process) | resource |
-| [iosxe_interface_ospf_process.vtep_loopback_interface_ospf_process](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_ospf_process) | resource |
-| [iosxe_interface_pim.leaf_interface_pim](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_pim) | resource |
-| [iosxe_interface_pim.loopback_interface_pim](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_pim) | resource |
-| [iosxe_interface_pim.pim_loopback_interface_pim](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_pim) | resource |
-| [iosxe_interface_pim.spine_interface_pim](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_pim) | resource |
-| [iosxe_interface_pim.vtep_loopback_interface_pim](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/interface_pim) | resource |
-| [iosxe_msdp.msdp](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/msdp) | resource |
-| [iosxe_ospf.ospf](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/ospf) | resource |
-| [iosxe_pim.pim](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/pim) | resource |
-| [iosxe_system.system](https://registry.terraform.io/providers/netascode/iosxe/latest/docs/resources/system) | resource |
+| [iosxe_interface_ethernet.leaf_fabric_interface](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_ethernet) | resource |
+| [iosxe_interface_ethernet.spine_fabric_interface](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_ethernet) | resource |
+| [iosxe_interface_loopback.loopback](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_loopback) | resource |
+| [iosxe_interface_loopback.pim_loopback](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_loopback) | resource |
+| [iosxe_interface_loopback.vtep_loopback](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_loopback) | resource |
+| [iosxe_interface_ospf.leaf_interface_ospf](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_ospf) | resource |
+| [iosxe_interface_ospf.spine_interface_ospf](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_ospf) | resource |
+| [iosxe_interface_ospf_process.leaf_interface_ospf_process](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_ospf_process) | resource |
+| [iosxe_interface_ospf_process.loopback_interface_ospf_process](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_ospf_process) | resource |
+| [iosxe_interface_ospf_process.pim_loopback_interface_ospf_process](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_ospf_process) | resource |
+| [iosxe_interface_ospf_process.spine_interface_ospf_process](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_ospf_process) | resource |
+| [iosxe_interface_ospf_process.vtep_loopback_interface_ospf_process](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_ospf_process) | resource |
+| [iosxe_interface_pim.leaf_interface_pim](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_pim) | resource |
+| [iosxe_interface_pim.loopback_interface_pim](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_pim) | resource |
+| [iosxe_interface_pim.pim_loopback_interface_pim](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_pim) | resource |
+| [iosxe_interface_pim.spine_interface_pim](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_pim) | resource |
+| [iosxe_interface_pim.vtep_loopback_interface_pim](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/interface_pim) | resource |
+| [iosxe_msdp.msdp](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/msdp) | resource |
+| [iosxe_ospf.ospf](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/ospf) | resource |
+| [iosxe_pim.pim](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/pim) | resource |
+| [iosxe_system.system](https://registry.terraform.io/providers/CiscoDevNet/iosxe/latest/docs/resources/system) | resource |
 <!-- END_TF_DOCS -->
