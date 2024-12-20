@@ -167,7 +167,7 @@ resource "iosxe_interface_pim" "leaf_interface_pim" {
   for_each = local.leaf_interface_indexes
 
   device      = each.value[0]
-  type        = var.fabric_interface_type
+  type        = var.leaf_fabric_interface_type
   name        = iosxe_interface_ethernet.leaf_fabric_interface[each.key].name
   sparse_mode = true
 }
@@ -176,7 +176,7 @@ resource "iosxe_interface_pim" "spine_interface_pim" {
   for_each = local.spine_interface_indexes
 
   device      = each.value[0]
-  type        = var.fabric_interface_type
+  type        = var.spine_fabric_interface_type
   name        = iosxe_interface_ethernet.spine_fabric_interface[each.key].name
   sparse_mode = true
 }
