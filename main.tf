@@ -93,10 +93,10 @@ resource "iosxe_interface_ospf" "leaf_interface_ospf" {
   name                        = iosxe_interface_ethernet.leaf_fabric_interface[each.key].name
   network_type_point_to_point = true
   process_ids = [{
-    id = "1"
-    # area = [{
-    #   area_id = "0"
-    # }]
+    id = iosxe_ospf.ospf[each.value[0]].process_id
+    areas = [{
+      area_id = "0"
+    }]
     }
   ]
 }
@@ -109,10 +109,10 @@ resource "iosxe_interface_ospf" "spine_interface_ospf" {
   name                        = iosxe_interface_ethernet.spine_fabric_interface[each.key].name
   network_type_point_to_point = true
   process_ids = [{
-    id = "1"
-    # area = [{
-    #   area_id = "0"
-    # }]
+    id = iosxe_ospf.ospf[each.value[0]].process_id
+    areas = [{
+      area_id = "0"
+    }]
     }
   ]
 }
