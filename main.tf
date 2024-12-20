@@ -117,20 +117,20 @@ resource "iosxe_interface_ospf" "spine_interface_ospf" {
   ]
 }
 
-# resource "iosxe_interface_ospf" "loopback_interface_ospf" {
-#   for_each = local.all
+resource "iosxe_interface_ospf" "loopback_interface_ospf" {
+  for_each = local.all
 
-#   device = each.value[0]
-#   type   = "Loopback"
-#   name   = iosxe_interface_loopback.loopback[each.value].name
-#   process_ids = [{
-#     id = 1
-#     areas = [{
-#       area_id = "0"
-#     }]
-#     }
-#   ]
-# }
+  device = each.value[0]
+  type   = "Loopback"
+  name   = iosxe_interface_loopback.loopback[each.value].name
+  process_ids = [{
+    id = 1
+    areas = [{
+      area_id = "0"
+    }]
+    }
+  ]
+}
 
 resource "iosxe_interface_pim" "leaf_interface_pim" {
   for_each = local.leaf_interface_indexes
