@@ -53,7 +53,7 @@ resource "iosxe_interface_ethernet" "leaf_fabric_interface" {
   for_each = local.leaf_interface_indexes
 
   device     = each.value[0]
-  type       = var.fabric_interface_type
+  type       = var.leaf_fabric_interface_type
   name       = "${var.leaf_fabric_interface_prefix}${var.leaf_fabric_interface_offset + each.value[1]}"
   shutdown   = false
   switchport = false
@@ -66,7 +66,7 @@ resource "iosxe_interface_ethernet" "spine_fabric_interface" {
   for_each = local.spine_interface_indexes
 
   device     = each.value[0]
-  type       = var.fabric_interface_type
+  type       = var.spine_fabric_interface_type
   name       = "${var.spine_fabric_interface_prefix}${var.spine_fabric_interface_offset + each.value[1]}"
   shutdown   = false
   switchport = false
