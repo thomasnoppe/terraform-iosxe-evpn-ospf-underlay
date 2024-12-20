@@ -92,6 +92,13 @@ resource "iosxe_interface_ospf" "leaf_interface_ospf" {
   type                        = var.leaf_fabric_interface_type
   name                        = iosxe_interface_ethernet.leaf_fabric_interface[each.key].name
   network_type_point_to_point = true
+  process_ids = [{
+    id = iosxe_ospf.ospf[each.value].process_id
+    area = [{
+      area_id = "0"
+    }]
+    }
+  ]
 }
 
 resource "iosxe_interface_ospf" "spine_interface_ospf" {
@@ -101,66 +108,13 @@ resource "iosxe_interface_ospf" "spine_interface_ospf" {
   type                        = var.spine_fabric_interface_type
   name                        = iosxe_interface_ethernet.spine_fabric_interface[each.key].name
   network_type_point_to_point = true
-}
-
-resource "iosxe_interface_ospf_process" "leaf_interface_ospf_process" {
-  for_each = local.leaf_interface_indexes
-
-  device     = each.value[0]
-  type       = var.leaf_fabric_interface_type
-  name       = iosxe_interface_ospf.leaf_interface_ospf[each.key].name
-  process_id = iosxe_ospf.ospf[each.value[0]].process_id
-  area = [{
-    area_id = "0"
-  }]
-}
-
-resource "iosxe_interface_ospf_process" "spine_interface_ospf_process" {
-  for_each = local.spine_interface_indexes
-
-  device     = each.value[0]
-  type       = var.spine_fabric_interface_type
-  name       = iosxe_interface_ospf.spine_interface_ospf[each.key].name
-  process_id = iosxe_ospf.ospf[each.value[0]].process_id
-  area = [{
-    area_id = "0"
-  }]
-}
-
-resource "iosxe_interface_ospf_process" "loopback_interface_ospf_process" {
-  for_each = local.all
-
-  device     = each.value
-  type       = "Loopback"
-  name       = iosxe_interface_loopback.loopback[each.value].name
-  process_id = iosxe_ospf.ospf[each.value].process_id
-  area = [{
-    area_id = "0"
-  }]
-}
-
-resource "iosxe_interface_ospf_process" "pim_loopback_interface_ospf_process" {
-  for_each = var.spines
-
-  device     = each.value
-  type       = "Loopback"
-  name       = iosxe_interface_loopback.pim_loopback[each.value].name
-  process_id = iosxe_ospf.ospf[each.value].process_id
-  area = [{
-    area_id = "0"
-  }]
-}
-
-resource "iosxe_interface_ospf_process" "vtep_loopback_interface_ospf_process" {
-  for_each = var.leafs
-
-  device     = each.value
-  type       = "Loopback"
-  name       = iosxe_interface_loopback.vtep_loopback[each.value].name
-  process_id = iosxe_ospf.ospf[each.value].process_id
-  area = [{
-    area_id = "0"
-  }]
+  process_ids = [{
+    id = iosxe_ospf.ospf[each.value].process_id
+    area = [{
+      area_id = "0"
+    }]
+    }
+  ]
 }
 
 resource "iosxe_interface_pim" "leaf_interface_pim" {
