@@ -133,9 +133,9 @@ resource "iosxe_interface_ospf" "loopback_interface_ospf" {
 }
 
 resource "iosxe_interface_ospf" "pim_loopback_interface_ospf" {
-  for_each = local.spine_interface_indexes
+  for_each = var.spines
 
-  device = each.value[0]
+  device = each.value
   type   = "Loopback"
   name   = iosxe_interface_loopback.pim_loopback[each.value].name
   process_ids = [{
