@@ -81,7 +81,7 @@ resource "iosxe_ospf" "ospf" {
   device                    = each.value
   process_id                = 1
   router_id                 = [for l in var.loopbacks : l.ipv4_address if l.device == each.value][0]
-  passive_interface_default = true
+  passive_interface_default = false
   depends_on                = [iosxe_system.system]
 }
 
