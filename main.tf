@@ -117,6 +117,22 @@ resource "iosxe_interface_ospf" "spine_interface_ospf" {
   ]
 }
 
+resource "iosxe_interface_ospf" "loopback_interface_ospf" {
+  for_each = local.spine_interface_indexes
+
+  device                      = each.value[0]
+  type                        = var.spine_fabric_interface_type
+  name                        = iosxe_interface_ethernet.spine_fabric_interface[each.key].name
+  network_type_point_to_point = true
+  process_ids = [{
+    id = iosxe_ospf.ospf[each.value[0]].process_id
+    areas = [{
+      area_id = "0"
+    }]
+    }
+  ]
+}
+
 resource "iosxe_interface_pim" "leaf_interface_pim" {
   for_each = local.leaf_interface_indexes
 
