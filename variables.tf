@@ -82,7 +82,19 @@ variable "vtep_loopbacks" {
   }
 }
 
-variable "fabric_interface_type" {
+variable "leaf_fabric_interface_type" {
+  description = "Interface type of fabric interfaces. Choices: `GigabitEthernet`, `TwoGigabitEthernet`, `FiveGigabitEthernet`, `TenGigabitEthernet`, `TwentyFiveGigE`, `FortyGigabitEthernet`, `HundredGigE`, `TwoHundredGigE`, `FourHundredGigE`."
+  type        = string
+  default     = "GigabitEthernet"
+  nullable    = false
+
+  validation {
+    condition     = contains(["GigabitEthernet", "TwoGigabitEthernet", "FiveGigabitEthernet", "TenGigabitEthernet", "TwentyFiveGigE", "FortyGigabitEthernet", "HundredGigE", "TwoHundredGigE", "FourHundredGigE"], var.fabric_interface_type)
+    error_message = "Allowed values: `GigabitEthernet`, `TwoGigabitEthernet`, `FiveGigabitEthernet`, `TenGigabitEthernet`, `TwentyFiveGigE`, `FortyGigabitEthernet`, `HundredGigE`, `TwoHundredGigE` or `FourHundredGigE`."
+  }
+}
+
+variable "spine_fabric_interface_type" {
   description = "Interface type of fabric interfaces. Choices: `GigabitEthernet`, `TwoGigabitEthernet`, `FiveGigabitEthernet`, `TenGigabitEthernet`, `TwentyFiveGigE`, `FortyGigabitEthernet`, `HundredGigE`, `TwoHundredGigE`, `FourHundredGigE`."
   type        = string
   default     = "GigabitEthernet"
